@@ -36,40 +36,41 @@
 		<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 		
 <script>
-loadFlickr();
-
-	function loadFlickr(){
-    
-	var html =""
-    
-	var apiurl = "http://api.flickr.com/services/feeds/photos_public.gne?tags=ebola&format=json&jsoncallback=?"
-
-	 $(document).ready(function() {
-		 console.log("document ready ")
-		$.getJSON(apiurl, function(json){
-		console.log(json);
+$(document).ready(function(){
+	console.log("ready");
+	
+	loadNytimes();
+      });	
+	
+var htmlBuilder =""
+function loadNytimes(){
+	console.log("loading nytimes");
+	var apiurl = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=ebola&begin_date=20140810&end_date=20141231&api-key=55efaf2d371e0074bdc2c547c525895c:18:54683124"
+      	
+	$.getJSON(apiurl, function(data) {
+		var getArticles = data.response.docs;
+		console.log("getting articles");
+		$.each(getArticles, function(i, data){
+		htmlBuilder += '<h2><a href="' + data.web_url + '">' + data.headline.main + '</a></h2>';
 		
-            
-		$.each(json.items, function(i,data){
-                console.log(data.media.m);
-                console.log(data.author_id);
-                console.log(data.description);
-                html += '<img src="' + data.media.m + '">';
-                //html += '<p>' + data.author_id + '</p>';
-                //html += '<h3>' + data.description + '</h3>';
-		})
-           
-		$("#results").html(html); 
-		})
 		
-	 });
-	}
-	 
+		
+		htmlBuilder += '<span class="published">' + 'Published: ' + data.pub_date + '</span>' +'<br/>';
+                htmlBuilder += '<h6>' + data.snippet +'</h6>';
+			
+	});
+	
+	$("#nytimes").append(htmlBuilder);
+});
+	
+}	
+
+		
 </script>
 	</head>
-	<body>
+	<div class="body2">
 
-<div id="results"></div>
+<div id="nytimes"></div>
 
-</body>
+</div>
 </html>

@@ -1,70 +1,17 @@
+   
+    <link href="css/theme.css" rel="stylesheet">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>   
+        <script src="tweetLinkIt.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+	
+	<script>function pageComplete(){
+		console.log("linking");
+		$('.tweet').tweetLinkify();
+		}
 
-	<head>
-            
-                <title>Twitter Streaming Using Node</title>
-                <script src="../socket.io/socket.io.js"></script>
-                <!-- JQuery -->
-                <script src="/libs/jquery-1.10.1.js"></script>
-            
-            
-            
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Bootstrap 3 Fixed Width Example</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
-                <link href="css/theme.css" rel="stylesheet">
-                <link rel="stylesheet" href="css/index.css">
-                    
-                    
-                <!-- Google Maps -->
-                <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
-                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
-
-                
-                <!-- Generic server specific functions -->
-                <script src="/js/FMEServer.js" type="text/javascript"></script>
-
-                <!-- Spatial Dashboard JavaScript -->
-                <script src="/js/twitterStream.js" type="text/javascript"></script>    
-                </head>
-
-
-<body onload="initialize()">
-    
- <div class="container">
-    <h1>Ebola Across The World</h1>
-<!--<div class="navbar navbar-default">
-  <div class="container">
-    <a class="navbar-brand" href="#">Brand</a>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li class="divider-vertical"></li>
-      <li><a href="#">More</a></li>
-      <li><a href="#">Options</a></li>
-    </ul>
-  </div>
-        </div> -->
-
-
-  <div class="jumbotron text-center">
-    <div id="map_canvas"></div>
-    <p class="lead">Map goes here</p>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-5">
-      <h4>What's the World Saying?</h4>
-      
-      
-      
+</script>
 <?php
 ini_set('display_errors', 1);
 require_once('TwitterAPIExchange.php');
@@ -108,45 +55,20 @@ $string = json_decode($twitter->setGetfield($getfield)
              
 foreach($string['statuses'] as $items)
 {
-    echo "TWEET: " . $items['text'] . "</br>";
-    echo "Created at: " . $items['created_at'] . "</br>";
-    echo "User: " . $items['user']['name'] . "</br>";
+	$tweetText=$items['text'];
+	$users = $items['user'];
+	
+    echo $users['default_profile_image'] . "<p class='tweet'>@" . $users['screen_name'] . ": ";
+    echo "" . $tweetText . "</p>";
+    echo "<span class='create'>" . "Created at: " . $items['created_at'] . "</span>" . "</br>";
 }
+echo "<script>pageComplete();</script>;"
 
 //echo "---------</br>";
 //echo $twitter->setGetfield($getfield)
              //->buildOauth($url, $requestMethod)
              //->performRequest();
 ?>
-
-</div>
-    
-    
-    
-    
-    
-    
-    
-    <div class="col-md-7">
-      <h4>Important News Updates</h4>
-    
-    
-  </div>
-  </div>
-  
-  <hr>
-  
-  <div class="jumbotron text-center">
-    <p class="lead">Flickr Here</p>
-  </div>
-  
-</div> <!-- /container -->
-	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-
-
 
 
 

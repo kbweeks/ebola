@@ -1,4 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+            
+            
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Ebola Across The World</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/styles.css" rel="stylesheet">
+                <link href="css/theme.css" rel="stylesheet">
+                <link rel="stylesheet" href="css/index.css">
+                
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>   
+                    
+                <!-- Google Maps -->
+                <script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2qxJjblYIps4xZ8u6s2I2QVOJfW4ekso">
+		</script>
+		
+		<!-- DC jflickrfeed -->
+		<link href="http://cdn.dcodes.net/2/flickr/css/dc_jflickrfeed.css" type="text/css" rel="stylesheet" />
+		<script src="http://cdn.dcodes.net/2/flickr/js/jflickrfeed.js"></script>
+
+		<!-- DC jflickrfeed: Colorbox Lightbox -->
+		<link href="http://cdn.dcodes.net/2/flickr/js/colorbox/colorbox.css" rel="stylesheet" type="text/css" media="screen" /> 
+		<script src="http://cdn.dcodes.net/2/flickr/js/colorbox/jquery.colorbox-min.js"></script>
+
+		<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+		
 <script>
+loadFlickr();
 
 	function loadFlickr(){
     
@@ -9,22 +47,25 @@
 	 $(document).ready(function() {
 		 console.log("document ready ")
 		$.getJSON(apiurl, function(json){
-		console.log(json);
 		
             
 		$.each(json.items, function(i,data){
-                console.log(data.media.m);
-                console.log(data.author_id);
-                console.log(data.description);
-                html += '<img src="' + data.media.m + '">';
+                html += '<span id="images">' + '<img height="100px" width="200px" src="' + data.media.m + '">' + '</span>';
                 //html += '<p>' + data.author_id + '</p>';
                 //html += '<h3>' + data.description + '</h3>';
 		})
            
-		$("#results").html(index.html); 
+		$("#results").html(html); 
 		})
 		
 	 });
 	}
 	 
 </script>
+	</head>
+	<body>
+
+<div id="results"></div>
+
+</body>
+</html>

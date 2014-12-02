@@ -1,10 +1,90 @@
+/*headings*/
+
+
 h1 {
-    text-align:center;
+    font-family:'Old Standard TT', serif;
+    font-size:60px;
 }
+h2 {
+    font-family: 'Abel', sans-serif;
+    font-size:20px;
+    color:black;
+    text-decoration: underline;
+}
+a {
+    color:#00826A;
+}
+p {
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 0px;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+h3 {
+    font-family: 'Abel', sans-serif;
+}
+h4 {
+    font-family:'Old Standard TT', serif;
+    font-size:30px;
+}
+h5 {
+    font-family: 'Abel', sans-serif;
+    font-size:16pt;
+}
+h6 {
+    font-family: 'Abel', sans-serif;
+    font-size:14pt;
+}
+iframe {
+    padding-left:0px;
+    border-color: black;
+    border:solid 2px !important;
+    background-color:#eee;
+    padding:5px;
+}
+
+.tweet {
+    font-size:15px;
+    font-family: 'Abel', sans-serif;
+}
+body {
+    padding-top:0px !important;
+    background-color:#fff !important;
+}
+.text-center {
+    text-align: center;
+}
+
 .container {
     width:95% !important;
     max-width:none;
+    padding-top:40px;
 }
 .container .jumbotron {
     border-radius:0px;
+}
+#map-canvas {
+    height:500px;
+    width:100%;
+    z-index:1;
+}
+.container .jumbotron {
+    padding:20px;
+}
+#results {
+    text-align:center;
+}
+.create {
+    font-size:12px;
+    font-family: 'Abel', sans-serif;
+    -webkit-margin-after: 4px;
+}
+.published {
+    font-size:12px;
+    font-family: 'Abel', sans-serif;
+}
+#images {
+    margin:4px;
+    
 }
