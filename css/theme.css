@@ -1,0 +1,10 @@
+h1 {
+    text-align:center;
+}
+.container {
+    width:95% !important;
+    max-width:none;
+}
+.container .jumbotron {
+    border-radius:0px;
+}

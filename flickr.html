@@ -1,0 +1,30 @@
+<script>
+
+	function loadFlickr(){
+    
+	var html =""
+    
+	var apiurl = "http://api.flickr.com/services/feeds/photos_public.gne?tags=ebola&format=json&jsoncallback=?"
+
+	 $(document).ready(function() {
+		 console.log("document ready ")
+		$.getJSON(apiurl, function(json){
+		console.log(json);
+		
+            
+		$.each(json.items, function(i,data){
+                console.log(data.media.m);
+                console.log(data.author_id);
+                console.log(data.description);
+                html += '<img src="' + data.media.m + '">';
+                //html += '<p>' + data.author_id + '</p>';
+                //html += '<h3>' + data.description + '</h3>';
+		})
+           
+		$("#results").html(index.html); 
+		})
+		
+	 });
+	}
+	 
+</script>
