@@ -1,6 +1,6 @@
    
     <link href="css/theme.css" rel="stylesheet">
-	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>   
         <script src="tweetLinkIt.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400,700' rel='stylesheet' type='text/css'>
@@ -58,9 +58,10 @@ foreach($string['statuses'] as $items)
 	$tweetText=$items['text'];
 	$users = $items['user'];
 	
-    echo $users['default_profile_image'] . "<p class='tweet'>@" . $users['screen_name'] . ": ";
-    echo "" . $tweetText . "</p>";
-    echo "<span class='create'>" . "Created at: " . $items['created_at'] . "</span>" . "</br>";
+    echo "<div class='new-tweet'>" . "<span id='pic'>" . "<img src='",$users['profile_image_url'],"'>" . "</span>" . "<p class='username'>" . $users['name'] . "</p>" . "<span class='tweet'>@" . $users['screen_name'] . "</span>" . "</br>" ;
+    echo "<span class='create'>" . $items['created_at'] . "</span>" . "</br>";
+    echo "<p class='tweet'>" . "" . $tweetText . "</p>" . "</div>" . "</br>";
+    
 }
 echo "<script>pageComplete();</script>;"
 

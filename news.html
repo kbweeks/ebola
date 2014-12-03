@@ -51,12 +51,12 @@ function loadNytimes(){
 		var getArticles = data.response.docs;
 		console.log("getting articles");
 		$.each(getArticles, function(i, data){
-		htmlBuilder += '<h2><a href="' + data.web_url + '">' + data.headline.main + '</a></h2>';
+		htmlBuilder += '<div class="new-article">' + '<h2><a href="' + data.web_url + '" target="_blank" >' + data.headline.main + '</a></h2>';
 		
 		
 		
 		htmlBuilder += '<span class="published">' + 'Published: ' + data.pub_date + '</span>' +'<br/>';
-                htmlBuilder += '<h6>' + data.snippet +'</h6>';
+                htmlBuilder += '<h6>' + data.snippet +'</h6>' + '</div>';
 			
 	});
 	

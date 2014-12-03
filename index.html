@@ -12,6 +12,7 @@
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		 <script src="map.js"></script>
 		<link href="css/styles.css" rel="stylesheet">
                 <link href="css/theme.css" rel="stylesheet">
                 <link rel="stylesheet" href="css/index.css">
@@ -36,176 +37,12 @@
 	loadNytimes();
       });
       
-      function initialize() {
-        var mapOptions = {
-          center: { lat: 33.3151, lng: -34.6875},
-          zoom: 3
-        };
-        
-	var map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
-        
-	
-        var marker = new google.maps.Marker({
-            position: { lat: -2.6303, lng: 24.0436},
-            map: map,
-            title:'DR Congo'
-      });
-	
-        var marker2 = new google.maps.Marker({
-            position: { lat: 12.6500, lng: -8.0000},
-            map: map,
-            title:'Mali',
-        });
-        
-        var marker3 = new google.maps.Marker({
-            position: { lat: 14.6667, lng: -17.4167},
-            map: map,
-            title:'Senegal'
-      });
-	var marker4 = new google.maps.Marker({
-            position: { lat: 40.4148, lng: -3.7079},
-            map: map,
-            title:'Spain'
-      });
-	var marker5 = new google.maps.Marker({
-            position: { lat: 40.7127, lng: -74.0059},
-            map: map,
-            title:'NYC'
-      });
-	 var marker6 = new google.maps.Marker({
-            position: { lat: 33.0915, lng: -96.8994},
-            map: map,
-            title:'Dallas, TX'
-      });
-	var marker7 = new google.maps.Marker({
-            position: { lat: 10.8117, lng: -11.0962},
-            map: map,
-            title:'Guinea'
-      });
-	var marker8 = new google.maps.Marker({
-            position: { lat: 8.8634, lng: -11.8433},
-            map: map,
-            title:'Sierra Leone'
-      });
-	var marker9 = new google.maps.Marker({
-            position: { lat: 6.8610, lng: -9.3823},
-            map: map,
-            title:'Liberia'
-      });
-	var marker10 = new google.maps.Marker({
-            position: { lat: 10.1852, lng: 7.9541},
-            map: map,
-            title:'Nigeria '
-      });
-         
-         var infowindow = new google.maps.InfoWindow({
-            content: 'The Democratic Republic of Congo reported an outbreak in 2014,</br> but the virus is of a different strain and is unrelated to the </br>current outbreak occurring in the rest of the world.',
-      });
-	
-	  var infowindow2 = new google.maps.InfoWindow({
-            content: 'Mali has currently seen six deaths as a result </br>of Ebola, after a two-year-old girl contracted the disease</br> after traveling in Guinea. '
-      });
-         
-         var infowindow3 = new google.maps.InfoWindow({
-            content: 'Senegal currently has a contained spread </br>after the outbreak started with a university student in Dakar.',
-      });
-	 var infowindow4 = new google.maps.InfoWindow({
-            content: 'Brother Miguel Pajares, whom was volunteering in Liberia,</br> contracted the disease and was flown home</br> to Spain to be treated. Two others contracted Ebola </br>from him, one of which survived.',
-      });
-	 var infowindow5 = new google.maps.InfoWindow({
-            content:'An MSF doctor, Craig Spencer, contracted Ebola after</br> working in West Africa to fight the disease. </br>He recovered and the virus did not spread </br>further in New York City.'
-      });
-         
-	 var infowindow6 = new google.maps.InfoWindow({
-            content: 'A man who traveled to Liberia and returned to </br>Dallas, Texas tested positive for </br>Ebola and subsequently died. Two nurses working</br> in the same hospital contracted Ebola but recovered. '
-      });
-         
-         var infowindow7 = new google.maps.InfoWindow({
-            content: 'The 2013 outbreak began here in Guinea. </br>For months, the virus was not recognized as Ebola, </br>helping it to spread with ease throughout West Africa. </br>The WHO currently believes the number of cases is no</br> longer increasing nationally. ',
-      });
-	 var infowindow8 = new google.maps.InfoWindow({
-            content: 'Sierra Leone is not far behind Liberia </br>in its number of cases, citing just less </br>than 7,000. The WHO recently reported that it </br>believes Sierra Leone will surpass the number of cases</br> in Liberia as the virus continues to steadily spread.  '
-      }); 
-         var infowindow9 = new google.maps.InfoWindow({
-            content: 'Liberia has had the most reported cases of this recent outbreak.</br> With over 7,000 of its residents affected and only 50 doctors in the country, Liberia </br>is in dire need of medical and emergency aid. </br>The WHO predicts that Ebola will continue to spread </br>in Liberia in towns and villages.',
-      });
-	 var infowindow10 = new google.maps.InfoWindow({
-            content: 'Nigeria is currently Ebola free after losing just 7 Nigerians.</br> The result could have been much worse as the country knew </br>of 529 people to come in contact with the diesease.'
-      });
 
-         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-      });
-         google.maps.event.addListener(marker2, 'click', function() {
-            infowindow2.open(map,marker2);
-      });
-	 google.maps.event.addListener(marker3, 'click', function() {
-            infowindow3.open(map,marker3);
-      });
-	 google.maps.event.addListener(marker4, 'click', function() {
-            infowindow4.open(map,marker4);
-      });
-         google.maps.event.addListener(marker5, 'click', function() {
-            infowindow5.open(map,marker5);
-      });
-	 google.maps.event.addListener(marker6, 'click', function() {
-            infowindow6.open(map,marker6);
-      });
-	 google.maps.event.addListener(marker7, 'click', function() {
-            infowindow7.open(map,marker7);
-      });
-         google.maps.event.addListener(marker8, 'click', function() {
-            infowindow8.open(map,marker8);
-      });
-	 google.maps.event.addListener(marker9, 'click', function() {
-            infowindow9.open(map,marker9);
-      });
-	 google.maps.event.addListener(marker10, 'click', function() {
-            infowindow10.open(map,marker10);
-      });
-      
-	 
-  }
-       google.maps.event.addDomListener(window, 'load', initialize);
-    
-
-	function loadFlickr(){
-    
-	var html =""
-    
-	var apiurl = "http://api.flickr.com/services/feeds/photos_public.gne?tags=ebola&format=json&jsoncallback=?"
-
-	 $(document).ready(function() {
-		 console.log("document ready ")
-		$.getJSON(apiurl, function(json){
-		console.log(json);
-		
-            
-		$.each(json.items, function(i,data){
-                console.log(data.media.m);
-                console.log(data.author_id);
-                console.log(data.description);
-                html += '<img src="' + data.media.m + '">';
-                //html += '<p>' + data.author_id + '</p>';
-                //html += '<h3>' + data.description + '</h3>';
-		})
-           
-		$("#results").html(index.html); 
-		})
-		
-	 });
-	 
-	  
-	
-	 
-	
-	 
 	 function pageComplete(){
 		console.log("linking");
 		$('.tweet').tweetLinkify();                       
 		}
-}
+
     </script>	
 		
 	</head>		   
@@ -214,26 +51,28 @@
 
     
  <div class="container">
+	
+	
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
     <h1>Ebola Across The World</h1>
-    <h3>In March 2014, the world's largest Ebola virus outbreak started in West Africa. As the virus continues to
-    claim the lives of thousands of West Africans and touch different continents, the disease has caused a panic
-    and even has become a popular discussion topic.</h3>
-</br>
-      <h5>This map shows the places affected by the 2013-present Ebola outbreak. Click the markers on the map to learn more about the Ebola cases in that area.</h5>
-<!--<div class="navbar navbar-default">
-  <div class="container">
-    <a class="navbar-brand" href="#">Brand</a>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-      <li class="divider-vertical"></li>
-      <li><a href="#">More</a></li>
-      <li><a href="#">Options</a></li>
-    </ul>
-  </div>
-        </div> -->
+    <h3>In December 2013, the world's deadliest and most widespread Ebola virus outbreak began in Guinea. 
+    As the virus continues to claim the lives of thousands of West Africans and affect other continents, 
+    the disease has caused a panic and even has become a popular discussion topic. Here, you can learn
+    about the current outbreak, find the latest news updates, view photographs of affected areas and those
+    working to fight Ebola, see up-to-the minute Twitter updates and learn even more. </h3>
+    </div>
+	<div class="col-md-1"></div>
+</div>	
 
+
+</br>
+</br>
+      
+      
+      <h4>Areas Affected By Current Outbreak</h4>
+	<h5> Click the markers on the map to learn about the Ebola cases in that area.</h5>
 
   <div class="jumbotron text-center">
     
@@ -243,47 +82,74 @@
   </div>
   
   <div class="row">
-    <div class="col-md-5">
-      <h4>What's the World Saying?</h4>
-      <h5>#ebola</h5>
-      <div class="jumbotron">
-    <iframe src="index.php" style="width:100%; height:500px;"></iframe>
-    </div>
-    </div>
-    
-    <div class="col-md-1">
-    </div>
-    
-    <div class="col-md-6">
-      
-      <h4>Recent Pictures from Flickr</h4>
-  <h5>Photographs of volunteers, victims, fundraisers and more.</h5>
-     <div class="jumbotron text-center">
-
-<iframe src="flickr.html" style="width:100%; height:500px; text-align: center;"></iframe>
-  </div>
-  </div>
-  </div>
-  
-  <hr>
-  
-  <div class="row">
-
-  <h4>Important News Updates</h4>
-      <h5>The latest Ebola related headlines</h5>
+    <div class="col-md-4">
+      <h4>Important News Updates</h4>
+      <h5>The latest Ebola related headlines from The New York Times</h5>
   <div class="jumbotron">
     <iframe src="news.html" style="width:100%; height:500px;"></iframe>
    
   </div>
+      
+  </div>
+ 
+  <div class="col-md-5">
+<h4>Recent Pictures from Flickr</h4>
+  <h5>International photographs of volunteers, victims, fundraisers, conferences and more.</h5>
+     <div class="jumbotron text-center">
 
-  
-  
-  
+<iframe src="flickr.html" style="width:100%; height:500px; text-align: center;"></iframe>
+  </div>
+
  </div>
   
+   <div class="col-md-3">
+      <h4>Twitter</h4>
+      <h5>What the world is saying about #ebola</h5> 
+      <div class="jumbotron">
+    <iframe src="index.php" style="width:100%; height:500px;"></iframe>
+    </div>
+    </div>
+  </div>
+
+  <div class="hidden-sm hidden-xs">
+  <div class="row">
+   <div class="col-md-12">
+      <h4>Learn More About Ebola's History</h4>
+      <h5>This isn't the first time the world has faced the Ebola virus, learn more about the history of Ebola by clicking through the slider below.
+      (View on a separate page by clicking <a href="http://kateweeks.com/project2" target="_blank">here</a>.)</h5>
+      <div class="jumbotron">
+    <iframe src="http://kateweeks.com/project2" style="width:100%; height:660px;"></iframe>
+    </div>
+    </div>
+  </div>
+  </div>
+  
+   <div class="row">
+   <div class="col-md-12">
+      <h4>Donate</h4>
+      <h5>Raising awareness and learning about Ebola is great, but there are other ways
+      that you can make a big difference.</h5>
+      <div class="jumbotron">
+    <iframe src="https://donate.doctorswithoutborders.org/onetime.cfm" style="width:100%; height:500px;"></iframe>
+    </div>
+    </div>
+  </div>
+  
+  
  <div class="text-center">
-      <h5>Sources:</h5>
-      <p>http://en.wikipedia.org/wiki/Ebola_virus_epidemic_in_West_Africa</p>
+      <div class="row"><p>Sources:</p></div>
+      <div class="row"><div class="create">http://en.wikipedia.org/wiki/Ebola_virus_epidemic_in_West_Africa</br>
+      Images:</br>
+      www.theconservativetreehouse.com, 
+www.cbsnews.com, 
+www.nbcnews.com, 
+www.dw.de, 
+www.bbc.co.uk, 
+www.scgnews.com, 
+www.ifrc.org, 
+www.bbc.com, 
+www.who.int, 
+www.ibtimes.com </div></div>
   </div>
  
  </br>
